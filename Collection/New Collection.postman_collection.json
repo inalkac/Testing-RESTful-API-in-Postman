@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "08e99130-0522-4100-86da-2e8754bd0d33",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"a\", \"6\");\r",
+							"pm.environment.set(\"b\", \"2\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/Divide",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <Divide xmlns=\"http://tempuri.org/\">\r\n            <intA>{{a}}</intA>\r\n            <intB>{{b}}</intB>\r\n        </Divide>\r\n    </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://www.dneonline.com/calculator.asmx",
+					"protocol": "http",
+					"host": [
+						"www",
+						"dneonline",
+						"com"
+					],
+					"path": [
+						"calculator.asmx"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
